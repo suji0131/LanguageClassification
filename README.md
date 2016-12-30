@@ -1,2 +1,2 @@
 # LanguageClassification
-NLP project classifying languages that share similar script.
+NLP project classifying languages (using TENSORFLOW) that share similar script.
