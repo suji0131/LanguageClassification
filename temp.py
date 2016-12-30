@@ -53,33 +53,4 @@ class LangClass:
         self.error = tf.reduce_mean(tf.cast(self.mistakes, tf.float32))
         self.err_list = tf.arg_max(self.prediction, 1)
         
-        
-    def execution(self):
-        #initializing all the variables we created
-        self.init_op = tf.initialize_all_variables()
-        self.sess = tf.Session()
-        self.sess.run(self.init_op)
-        
-        #Training on dataset
-        no_of_batches = int(len(train_input)/self.batch_size)
-        epoch = 1000
-        for i in range(epoch):
-            ptr = 0
-            for j in range(no_of_batches):
-                inp, out = train_input[ptr:ptr+batch_size], train_output[ptr:ptr+batch_size]
-                ptr += batch_size
-                sess.run(minimize, {data: inp, target: out})
-            print ("Epoch -", str(i))
-        incorrect = sess.run(error, {data: test_input, target: test_output})
-        incorr_list = sess.run(err_list, {data: test_input, target: test_output})
-
-        print("Epoch {:2d} error {:3.1f}%".format(i+1, 100*incorrect))
-        Saver = tf.train.Saver()
-        Saver.save(sess,'S:\Python\Computational_Opt\Comp_Op_Project35')
-        sess.close()
-
-        with open('pred_out.pkl', 'wb') as t:
-            pickle.dump(list(incorr_list), t)
-        end_time = time.time()
-        print((end_time-start_time)/60.0)
-        
+'''Work in progress'''
